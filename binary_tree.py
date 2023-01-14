@@ -22,3 +22,17 @@ class BinarySearchTreeNode:
                 self.right.add_child(data) # call the add_child method of that value that will lead to a recursion
             else: # if empty
                 self.right = BinarySearchTreeNode(data) # assign data to the right subtree
+    
+    def in_order_traversal(self): # return list of elements in the binary tree in order, left first, node then right
+        elements = []
+
+        # visit left tree
+        if self.left:
+            elements += self.left.in_order_traversal() # initiates a recursion
+
+        # visit base node
+
+        # visit right tree
+        
+
+        return elements
