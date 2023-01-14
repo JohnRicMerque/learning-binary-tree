@@ -38,6 +38,25 @@ class BinarySearchTreeNode:
             elements += self.right.in_order_traversal()
 
         return elements
+    
+    def search(self, val):
+        if self.data == val:
+            return True
+        
+        if val < self.data:
+            # value might be in left subtree
+            if self.left:
+                self.left.search(val) # another recursion to search for val until reaches point where there is no value
+            else:
+                return False # then return false
+
+        if val > self.data:
+            # value might be in right subtree
+            if self.right:
+                self.right.search(val)
+            else:
+                return False # then return false
+                
 
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0]) # instantiate class using array elements as argument
