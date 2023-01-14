@@ -5,3 +5,7 @@ class BinarySearchTreeNode:
         self.left = None
         self.right = None
     
+    def add_child(self, data):
+        if data == self.data: # if the value already exists 
+            return # then no need to add anything because binary search tree cannot have duplicate elements, hence return only
+        
