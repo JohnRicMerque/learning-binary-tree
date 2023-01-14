@@ -82,9 +82,15 @@ class BinarySearchTreeNode:
             elif self.right is None:
                 return self.left
 
-            min_val = self.right.find_min()
-            self.data = min_val
-            self.right = self.right.delete(min_val) # delete duplicate node then return new right subtree
+            # min_val = self.right.find_min() # used min value of the right subtree
+            # self.data = min_val
+            # self.right = self.right.delete(min_val) # delete duplicate node then return new right subtree
+
+            # Another implementation of delete method for the exercise using max value of the left subtree
+
+            max_val = self.left.find_max() # used max value of the left subtree
+            self.data = max_val
+            self.left = self.left.delete(max_val) # delete duplicate node then return new left subtree
 
         return self
     
@@ -147,7 +153,7 @@ if __name__ == '__main__': # note: this condition allows execution of code when 
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
     numbers_tree.delete(20)
     print("After deleting 20 ",numbers_tree.in_order_traversal())
-    
+
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
     numbers_tree.delete(9)
     print("After deleting 9 ",numbers_tree.in_order_traversal())
