@@ -46,14 +46,14 @@ class BinarySearchTreeNode:
         if val < self.data:
             # value might be in left subtree
             if self.left:
-                self.left.search(val) # another recursion to search for val until reaches point where there is no value
+                return self.left.search(val) # another recursion to search for val until reaches point where there is no value
             else:
                 return False # then return false
 
         if val > self.data:
             # value might be in right subtree
             if self.right:
-                self.right.search(val)
+                return self.right.search(val)
             else:
                 return False # then return false
                 
@@ -69,4 +69,4 @@ def build_tree(elements):
 if __name__ == '__main__': # note: this condition allows execution of code when file runs as a script, and not when imported as a module. This condition returns true whenever file is run as a script.
     numbers = [17, 4, 1, 20, 9, 23, 18, 34, 18, 4]
     numbers_tree = build_tree(numbers)
-    print(numbers_tree.in_order_traversal())
+    print(numbers_tree.search(20))
