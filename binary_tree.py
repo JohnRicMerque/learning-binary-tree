@@ -48,6 +48,6 @@ def build_tree(elements):
     return root
 
 if __name__ == '__main__': # note: this condition allows execution of code when file runs as a script, and not when imported as a module. This condition returns true whenever file is run as a script.
-    numbers = [17, 4, 1, 20, 9, 23, 18, 34]
+    numbers = [17, 4, 1, 20, 9, 23, 18, 34, 18, 4]
     numbers_tree = build_tree(numbers)
     print(numbers_tree.in_order_traversal())
