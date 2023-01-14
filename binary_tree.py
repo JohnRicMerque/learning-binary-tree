@@ -71,6 +71,22 @@ class BinarySearchTreeNode:
         left_sum = self.left.calculate_sum() if self.left else 0
         right_sum = self.right.calculate_sum() if self.right else 0
         return self.data + left_sum + right_sum
+    
+    def post_order_traversal(self): # return list of elements in the binary tree in order, left first, right tree, then base node
+        elements = []
+
+        # visit left tree
+        if self.left:
+            elements += self.left.post_order_traversal()
+
+        # visit right tree
+        if self.right:
+            elements += self.right.post_order_traversal()
+
+        # visit base node
+        elements.append(self.data)
+
+        return elements
                 
 
 def build_tree(elements):
@@ -94,8 +110,10 @@ if __name__ == '__main__': # note: this condition allows execution of code when 
     # print("Sweden is in the list? ", country_tree.search("Sweden"))
 
     # print(country_tree.in_order_traversal())
-    
+
     print("Input numbers:",numbers)
     print("Min:",numbers_tree.find_min())
     print("Max:",numbers_tree.find_max())
     print("Sum:", numbers_tree.calculate_sum())
+    print("In order traversal:", numbers_tree.in_order_traversal())
+    print("Post order traversal:", numbers_tree.post_order_traversal())
