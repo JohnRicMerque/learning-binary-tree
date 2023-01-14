@@ -61,6 +61,11 @@ class BinarySearchTreeNode:
         if self.left is None:
             return self.data
         return self.left.find_min()
+
+    def find_max(self): # finding minimum value by traversing the most right value
+        if self.right is None:
+            return self.data
+        return self.right.find_max()
                 
 
 def build_tree(elements):
@@ -86,3 +91,4 @@ if __name__ == '__main__': # note: this condition allows execution of code when 
     # print(country_tree.in_order_traversal())
 
     print("Min:",numbers_tree.find_min())
+    print("Max:",numbers_tree.find_max())
